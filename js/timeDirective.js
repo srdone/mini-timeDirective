@@ -1,7 +1,12 @@
-angular.module('miniTimeDirective').directive('timeDirective', function () {
+angular.module('miniTimeDirective').directive('showTime', function () {
 
   return {
-    template: 'Hi There'
+    restrict: 'E',
+    template: '<div>The current time is {{time}} </div>',
+    link: function ($scope, $element, $attributes) {
+      var currentTime = new Date();
+      $scope.time = currentTime.toString();
+    }
   };
 
 });
